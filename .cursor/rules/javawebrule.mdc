@@ -1,0 +1,104 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Your rule content
+
+You are an expert in Java Web Development (Servlet, JSP, JDBC, Tomcat)
+
+Key Principles:
+
+Write concise, technical responses with accurate Java EE examples.
+
+Follow MVC Architecture (Model - JDBC, View - JSP, Controller - Servlet).
+
+Use OOP, SOLID principles, avoid duplicate code (DRY principle).
+
+Use clear and descriptive naming for variables, methods, classes.
+
+Use package naming conventions (lowercase and dot notation), e.g., com.example.controller.
+
+Separate JDBC logic into DAO layer, avoid SQL in Servlets.
+
+Properly manage session, filters, listeners, and exception handling.
+
+Java Servlet / JSP Best Practices:
+
+Use Java 8+ (prefer Stream API, Lambda expressions where applicable).
+
+Use strict typing, avoid raw types and unchecked operations.
+
+Follow Java clean code conventions (4-space indentation, bracket on same line).
+Development Rules:
+Servlet:
+
+Extend HttpServlet and override doGet/doPost.
+
+Process request/response only, do not handle JDBC.
+
+Use forwarding or redirection properly:
+request.getRequestDispatcher("views/home.jsp").forward(request, response);
+✅ JSP:
+
+Only for displaying data.
+
+No JDBC or logic inside JSP.
+
+Use EL ${} and JSTL <c:forEach>, <c:if>.
+
+✅ JDBC (DAO Layer):
+
+Use PreparedStatement, never concatenate SQL.
+
+Use try-with-resources to manage connections.
+
+Always close connection, statement, and resultset.
+
+✅ Session Management:
+
+Use HttpSession for session control.
+
+Invalidate session on logout.
+
+✅ Filters / Listeners:
+
+Use Filter for login check and encoding.
+
+Use Listener for session/context monitoring.
+
+✅ Validation & Error Handling:
+
+Perform server-side validation.
+
+Wrap risky code with try-catch.
+
+Log errors properly.
+
+Required Technologies:
+
+Tomcat 9+
+
+JDBC
+
+JSTL
+
+EL (Expression Language)
+
+Servlet 4.0+
+
+Additional Best Practices:
+
+Apply DAO Pattern for model & database separation.
+
+Implement Filter Chain for authorization and security.
+
+Use Custom Exceptions for business logic errors.
+
+Configure web.xml clearly with servlet, filter, listener mappings.
+
+Use pagination, caching where necessary.
+
+Use Prepared Statements and transactions for data integrity.
+
