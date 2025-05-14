@@ -1,0 +1,71 @@
+package com.OLearning.dto;
+
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+
+public class UserDTO {
+    private Long id;
+
+    @NotBlank(message = "Họ và tên không được để trống")
+    private String full_name;
+
+    @NotBlank(message = "Email không được để trống")
+    @Email(message = "Email không hợp lệ")
+    private String email;
+
+    @NotBlank(message = "Mật khẩu không được để trống")
+    private String password;
+
+    @NotBlank(message = "Vai trò không được để trống")
+    private String role;
+    public UserDTO() {
+    }
+
+    public UserDTO(Long id, String full_name, String email, String password, String role) {
+        this.id = id;
+        this.full_name = full_name;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getFull_name() {
+        return full_name;
+    }
+
+    public void setFull_name(String full_name) {
+        this.full_name = full_name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+}

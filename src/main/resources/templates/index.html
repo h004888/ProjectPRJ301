@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <h2 th:text="${message}"></h2>
+    <p id="listUser"></p>
+</body>
+<script>
+    axios.get('http://localhost:8080/api/users') // Thay URL bằng API thật của bạn
+        .then(function (response) {
+            const users = response.data;
+
+            // Hàm chuyển vai trò tiếng Anh → tiếng Việt
+            function translateRole(role) {
+                switch(role) {
+                    case 'STUDENT': return 'Học viên';
+                    case 'TEACHER': return 'Giáo viên';
+                    case 'ADMIN': return 'Quản trị viên';
+                    default: return 'Không rõ';
+                }
+            }
+
+            // Tạo HTML
+            let output = '';
+            users.forEach(user => {
+                output += `Họ tên: ${user.full_name} | Email: ${user.email} | Mật khẩu: ${user.password} | Vai trò: ${translateRole(user.role)}<br>`;
+            });
+
+            // Gán vào thẻ p
+            document.getElementById('listUser').innerHTML = output;
+        })
+        .catch(function (error) {
+            document.getElementById('listUser').innerHTML = 'Lỗi khi tải dữ liệu!';
+            console.error(error);
+        });
+
+</script>
+</html>
